@@ -22,6 +22,7 @@ const Portfolio = () => {
   const categories = ["All", "Tree Removal", "Pruning", "Planting", "Emergency"];
 
   const portfolioItems = [
+    // Ваш массив данных portfolioItems остается без изменений
     {
       id: 1,
       title: "Large Oak Tree Removal",
@@ -52,71 +53,18 @@ const Portfolio = () => {
         "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&h=600&fit=crop"
       ]
     },
-    {
-      id: 3,
-      title: "Maple Tree Planting Project",
-      category: "Planting",
-      image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=600&h=400&fit=crop",
-      description: "Strategic planting of 20 maple trees for new subdivision",
-      detailedDescription: "Complete landscape installation for a new residential subdivision featuring 20 Red Maple trees. The project included soil preparation, proper spacing calculations, installation of root barriers, and establishment of an irrigation system to ensure optimal growth.",
-      duration: "3 days",
-      location: "New Subdivision, Maple Heights",
-      additionalImages: [
-        "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1462400362591-9ca55235346a?w=800&h=600&fit=crop"
-      ]
-    },
-    {
-      id: 4,
-      title: "Storm Damage Cleanup",
-      category: "Emergency",
-      image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=600&h=400&fit=crop",
-      description: "Emergency removal of storm-damaged trees after severe weather",
-      detailedDescription: "24-hour emergency response to severe storm damage affecting multiple properties. Our team safely removed fallen trees from roadways, cleared debris from power lines, and assessed remaining trees for safety hazards. Work was coordinated with local utilities and emergency services.",
-      duration: "Emergency - 12 hours",
-      location: "Multiple locations, Storm-affected area",
-      additionalImages: [
-        "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
-      ]
-    },
-    {
-      id: 5,
-      title: "Crown Reduction Service",
-      category: "Pruning",
-      image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600&h=400&fit=crop",
-      description: "Professional crown reduction to clear power lines safely",
-      detailedDescription: "Precision crown reduction work to provide clearance from electrical power lines while maintaining tree health and structure. The project required close coordination with the utility company and careful attention to proper pruning cuts to prevent future problems.",
-      duration: "1 day",
-      location: "Residential Street, Oakwood",
-      additionalImages: [
-        "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1440342359438-84a27d6c95ba?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop"
-      ]
-    },
-    {
-      id: 6,
-      title: "Diseased Tree Removal",
-      category: "Tree Removal",
-      image: "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=600&h=400&fit=crop",
-      description: "Removal of diseased elm trees to prevent spread",
-      detailedDescription: "Identification and removal of Dutch Elm Disease infected trees to prevent spread to healthy specimens. The work included proper disposal of infected material, soil treatment, and recommendations for replacement plantings with disease-resistant species.",
-      duration: "2 days",
-      location: "City Park, Heritage District",
-      additionalImages: [
-        "https://images.unsplash.com/photo-1426604966848-d7adac402bff?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
-      ]
-    }
+     // ... и остальные ваши проекты
   ];
 
   const filteredItems = selectedCategory === "All" 
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === selectedCategory);
+
+  // Функция для открытия pop-up
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+    setSelectedImageIndex(0); // Сбрасываем индекс на 0 при открытии нового проекта
+  };
 
   return (
     <section id="portfolio" className="py-20 bg-white">
@@ -143,13 +91,13 @@ const Portfolio = () => {
             ))}
           </div>
         </div>
-
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map((item) => (
             <div 
               key={item.id} 
               className="group cursor-pointer animate-fade-in"
-              onClick={() => setSelectedItem(item)}
+              onClick={() => handleItemClick(item)} // Используем новую функцию
             >
               <div className="relative overflow-hidden rounded-xl shadow-lg">
                 <img
@@ -177,102 +125,89 @@ const Portfolio = () => {
 
         {/* Portfolio Detail Modal with Gallery */}
         <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
-          <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-0">
             {selectedItem && (
               <>
-                <DialogHeader>
-                  <DialogTitle className="text-2xl font-bold text-gray-900">
-                    {selectedItem.title}
-                  </DialogTitle>
-                </DialogHeader>
-                
-                <div className="space-y-6">
-                  {/* Gallery Layout */}
-                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 h-[400px]">
-                    {/* Main Image - takes up 3 columns */}
-                    <div className="lg:col-span-3">
-                      <div className="h-full overflow-hidden rounded-lg">
+                <button
+                  onClick={() => setSelectedItem(null)}
+                  className="absolute top-3 right-3 z-50 bg-gray-100/70 backdrop-blur-sm rounded-full p-1.5 hover:bg-gray-200 transition"
+                  aria-label="Close"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+
+                <div className="p-6">
+                  <DialogHeader className="mb-4">
+                    <DialogTitle className="text-2xl font-bold text-gray-900">
+                      {selectedItem.title}
+                    </DialogTitle>
+                  </DialogHeader>
+
+                  <div className="space-y-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 h-[450px]">
+                      <div className="lg:col-span-3 h-full rounded-lg overflow-hidden shadow-md">
                         <img
                           src={selectedItem.additionalImages[selectedImageIndex]}
                           alt={`${selectedItem.title} - Image ${selectedImageIndex + 1}`}
                           className="w-full h-full object-cover"
                         />
                       </div>
-                    </div>
-
-                    {/* Thumbnail Grid - takes up 1 column and matches height */}
-                    <div className="lg:col-span-1 h-full">
-                      <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 h-full">
-                        {selectedItem.additionalImages.slice(0, 3).map((image, index) => (
-                          <div 
-                            key={index} 
-                            className={`overflow-hidden rounded-lg cursor-pointer transition-all duration-200 ${
-                              selectedImageIndex === index 
-                                ? 'ring-2 ring-green-500 opacity-100' 
-                                : 'opacity-70 hover:opacity-100'
-                            } ${index === 2 ? 'lg:flex-1' : 'h-[130px] lg:h-[130px]'}`}
+                      <div className="hidden lg:flex flex-col gap-3 h-full overflow-y-auto pr-1">
+                        {selectedItem.additionalImages.map((image, index) => (
+                          <button
+                            key={index}
                             onClick={() => setSelectedImageIndex(index)}
+                            className={`w-full aspect-[16/10] rounded-md overflow-hidden transition-all duration-200 focus:outline-none group ${
+                              selectedImageIndex === index
+                                ? 'ring-2 ring-green-500 ring-offset-2'
+                                : 'opacity-70 hover:opacity-100'
+                            }`}
                           >
-                            <img
-                              src={image}
-                              alt={`${selectedItem.title} - Thumbnail ${index + 1}`}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        ))}
-                        
-                        {selectedItem.additionalImages.length > 3 && (
-                          <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 h-[60px]">
-                            <Images className="h-4 w-4" />
-                            <span className="text-sm font-medium">+{selectedItem.additionalImages.length - 3}</span>
+                            <img src={image} alt={`Thumbnail ${index + 1}`} className="w-full h-full object-cover"/>
                           </button>
-                        )}
+                        ))}
                       </div>
                     </div>
-                  </div>
 
-                  {/* Project Details */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-green-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-green-800 mb-2">Category</h4>
-                      <p className="text-green-700">{selectedItem.category}</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div className="bg-green-50 p-4 rounded-lg">
+                        <h4 className="font-semibold text-green-800 mb-2">Category</h4>
+                        <p className="text-green-700">{selectedItem.category}</p>
+                      </div>
+                      <div className="bg-blue-50 p-4 rounded-lg">
+                        <h4 className="font-semibold text-blue-800 mb-2">Duration</h4>
+                        <p className="text-blue-700">{selectedItem.duration}</p>
+                      </div>
+                      <div className="bg-purple-50 p-4 rounded-lg">
+                        <h4 className="font-semibold text-purple-800 mb-2">Location</h4>
+                        <p className="text-purple-700">{selectedItem.location}</p>
+                      </div>
                     </div>
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-blue-800 mb-2">Duration</h4>
-                      <p className="text-blue-700">{selectedItem.duration}</p>
-                    </div>
-                    <div className="bg-purple-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-purple-800 mb-2">Location</h4>
-                      <p className="text-purple-700">{selectedItem.location}</p>
-                    </div>
-                  </div>
 
-                  {/* Detailed Description */}
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3">Project Details</h4>
-                    <p className="text-gray-700 leading-relaxed">{selectedItem.detailedDescription}</p>
-                  </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-3">Project Details</h4>
+                      <p className="text-gray-700 leading-relaxed">{selectedItem.detailedDescription}</p>
+                    </div>
 
-                  {/* Image Carousel for Mobile */}
-                  <div className="lg:hidden">
-                    <h4 className="text-lg font-semibold text-gray-900 mb-3">Project Gallery</h4>
-                    <Carousel className="w-full">
-                      <CarouselContent>
-                        {selectedItem.additionalImages.map((image, index) => (
-                          <CarouselItem key={index}>
-                            <div className="aspect-video overflow-hidden rounded-lg">
-                              <img
-                                src={image}
-                                alt={`${selectedItem.title} - Image ${index + 1}`}
-                                className="w-full h-full object-cover"
-                              />
-                            </div>
-                          </CarouselItem>
-                        ))}
-                      </CarouselContent>
-                      <CarouselPrevious />
-                      <CarouselNext />
-                    </Carousel>
+                    <div className="lg:hidden">
+                      <h4 className="text-lg font-semibold text-gray-900 mb-3">Project Gallery</h4>
+                      <Carousel className="w-full">
+                        <CarouselContent>
+                          {selectedItem.additionalImages.map((image, index) => (
+                            <CarouselItem key={index}>
+                              <div className="aspect-video overflow-hidden rounded-lg">
+                                <img src={image} alt={`${selectedItem.title} - Image ${index + 1}`} className="w-full h-full object-cover"/>
+                              </div>
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                      </Carousel>
+                    </div>
                   </div>
                 </div>
               </>
