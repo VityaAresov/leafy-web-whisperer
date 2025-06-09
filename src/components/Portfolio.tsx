@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import {
   Dialog,
@@ -6,10 +5,19 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Images } from "lucide-react";
 
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   const categories = ["All", "Tree Removal", "Pruning", "Planting", "Emergency"];
 
@@ -167,9 +175,9 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* Portfolio Detail Modal */}
+        {/* Portfolio Detail Modal with Gallery */}
         <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
-          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
             {selectedItem && (
               <>
                 <DialogHeader>
@@ -179,13 +187,48 @@ const Portfolio = () => {
                 </DialogHeader>
                 
                 <div className="space-y-6">
-                  {/* Main Image */}
-                  <div className="aspect-video overflow-hidden rounded-lg">
-                    <img
-                      src={selectedItem.additionalImages[0]}
-                      alt={selectedItem.title}
-                      className="w-full h-full object-cover"
-                    />
+                  {/* Gallery Layout */}
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    {/* Main Image */}
+                    <div className="lg:col-span-2">
+                      <div className="aspect-video overflow-hidden rounded-lg">
+                        <img
+                          src={selectedItem.additionalImages[selectedImageIndex]}
+                          alt={`${selectedItem.title} - Image ${selectedImageIndex + 1}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Thumbnail Grid */}
+                    <div className="space-y-2">
+                      <div className="grid grid-cols-2 lg:grid-cols-1 gap-2">
+                        {selectedItem.additionalImages.slice(0, 4).map((image, index) => (
+                          <div 
+                            key={index} 
+                            className={`aspect-video overflow-hidden rounded-lg cursor-pointer transition-all duration-200 ${
+                              selectedImageIndex === index 
+                                ? 'ring-2 ring-green-500 opacity-100' 
+                                : 'opacity-70 hover:opacity-100'
+                            }`}
+                            onClick={() => setSelectedImageIndex(index)}
+                          >
+                            <img
+                              src={image}
+                              alt={`${selectedItem.title} - Thumbnail ${index + 1}`}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {selectedItem.additionalImages.length > 4 && (
+                        <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
+                          <Images className="h-4 w-4" />
+                          <span className="text-sm font-medium">Show all {selectedItem.additionalImages.length} photos</span>
+                        </button>
+                      )}
+                    </div>
                   </div>
 
                   {/* Project Details */}
@@ -210,20 +253,26 @@ const Portfolio = () => {
                     <p className="text-gray-700 leading-relaxed">{selectedItem.detailedDescription}</p>
                   </div>
 
-                  {/* Additional Images */}
-                  <div>
+                  {/* Image Carousel for Mobile */}
+                  <div className="lg:hidden">
                     <h4 className="text-lg font-semibold text-gray-900 mb-3">Project Gallery</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {selectedItem.additionalImages.slice(1).map((image, index) => (
-                        <div key={index} className="aspect-video overflow-hidden rounded-lg">
-                          <img
-                            src={image}
-                            alt={`${selectedItem.title} - Image ${index + 2}`}
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
-                      ))}
-                    </div>
+                    <Carousel className="w-full">
+                      <CarouselContent>
+                        {selectedItem.additionalImages.map((image, index) => (
+                          <CarouselItem key={index}>
+                            <div className="aspect-video overflow-hidden rounded-lg">
+                              <img
+                                src={image}
+                                alt={`${selectedItem.title} - Image ${index + 1}`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious />
+                      <CarouselNext />
+                    </Carousel>
                   </div>
                 </div>
               </>
