@@ -188,10 +188,10 @@ const Portfolio = () => {
                 
                 <div className="space-y-6">
                   {/* Gallery Layout */}
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                    {/* Main Image */}
-                    <div className="lg:col-span-2">
-                      <div className="aspect-video overflow-hidden rounded-lg">
+                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 h-[400px]">
+                    {/* Main Image - takes up 3 columns */}
+                    <div className="lg:col-span-3">
+                      <div className="h-full overflow-hidden rounded-lg">
                         <img
                           src={selectedItem.additionalImages[selectedImageIndex]}
                           alt={`${selectedItem.title} - Image ${selectedImageIndex + 1}`}
@@ -200,17 +200,17 @@ const Portfolio = () => {
                       </div>
                     </div>
 
-                    {/* Thumbnail Grid */}
-                    <div className="space-y-2">
-                      <div className="grid grid-cols-2 lg:grid-cols-1 gap-2">
-                        {selectedItem.additionalImages.slice(0, 4).map((image, index) => (
+                    {/* Thumbnail Grid - takes up 1 column and matches height */}
+                    <div className="lg:col-span-1 h-full">
+                      <div className="grid grid-cols-2 lg:grid-cols-1 gap-2 h-full">
+                        {selectedItem.additionalImages.slice(0, 3).map((image, index) => (
                           <div 
                             key={index} 
-                            className={`aspect-video overflow-hidden rounded-lg cursor-pointer transition-all duration-200 ${
+                            className={`overflow-hidden rounded-lg cursor-pointer transition-all duration-200 ${
                               selectedImageIndex === index 
                                 ? 'ring-2 ring-green-500 opacity-100' 
                                 : 'opacity-70 hover:opacity-100'
-                            }`}
+                            } ${index === 2 ? 'lg:flex-1' : 'h-[130px] lg:h-[130px]'}`}
                             onClick={() => setSelectedImageIndex(index)}
                           >
                             <img
@@ -220,14 +220,14 @@ const Portfolio = () => {
                             />
                           </div>
                         ))}
+                        
+                        {selectedItem.additionalImages.length > 3 && (
+                          <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2 h-[60px]">
+                            <Images className="h-4 w-4" />
+                            <span className="text-sm font-medium">+{selectedItem.additionalImages.length - 3}</span>
+                          </button>
+                        )}
                       </div>
-                      
-                      {selectedItem.additionalImages.length > 4 && (
-                        <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
-                          <Images className="h-4 w-4" />
-                          <span className="text-sm font-medium">Show all {selectedItem.additionalImages.length} photos</span>
-                        </button>
-                      )}
                     </div>
                   </div>
 

@@ -1,4 +1,3 @@
-
 import { Star, Quote } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -8,8 +7,22 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useEffect } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 
 const Testimonials = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+
+  useEffect(() => {
+    if (emblaApi) {
+      const autoScroll = setInterval(() => {
+        emblaApi.scrollNext();
+      }, 4000); // Auto-scroll every 4 seconds
+
+      return () => clearInterval(autoScroll);
+    }
+  }, [emblaApi]);
+
   const testimonials = [
     {
       id: 1,
@@ -73,6 +86,7 @@ const Testimonials = () => {
 
         <div className="relative">
           <Carousel
+            ref={emblaRef}
             opts={{
               align: "start",
               loop: true,

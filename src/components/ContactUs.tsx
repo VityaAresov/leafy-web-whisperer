@@ -99,18 +99,6 @@ const ContactUs = () => {
                 </Card>
               ))}
             </div>
-
-            <Card className="mt-6 border-0 shadow-md bg-green-600 text-white">
-              <CardContent className="p-6 text-center">
-                <h3 className="text-xl font-bold mb-2">Emergency Services</h3>
-                <p className="text-green-100 mb-4">
-                  Storm damage? Fallen tree? We're available 24/7 for emergency tree services.
-                </p>
-                <Button variant="secondary" className="w-full">
-                  Call Emergency Line
-                </Button>
-              </CardContent>
-            </Card>
           </div>
 
           {/* Contact Form */}
