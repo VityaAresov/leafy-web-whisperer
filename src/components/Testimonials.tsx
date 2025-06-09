@@ -1,6 +1,13 @@
 
 import { Star, Quote } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const Testimonials = () => {
   const testimonials = [
@@ -64,33 +71,47 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
-            <Card key={testimonial.id} className="hover:shadow-lg transition-shadow duration-300 animate-fade-in border-0 bg-white">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
-                  <Quote className="h-8 w-8 text-green-600 mr-3" />
-                  <div className="flex">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                </div>
-                <p className="text-gray-700 mb-6 leading-relaxed">"{testimonial.text}"</p>
-                <div className="flex items-center">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600">{testimonial.location}</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="relative">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {testimonials.map((testimonial) => (
+                <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="hover:shadow-lg transition-shadow duration-300 animate-fade-in border-0 bg-white h-full">
+                    <CardContent className="p-6 h-full flex flex-col">
+                      <div className="flex items-center mb-4">
+                        <Quote className="h-8 w-8 text-green-600 mr-3" />
+                        <div className="flex">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                          ))}
+                        </div>
+                      </div>
+                      <p className="text-gray-700 mb-6 leading-relaxed flex-grow">"{testimonial.text}"</p>
+                      <div className="flex items-center mt-auto">
+                        <img
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          className="w-12 h-12 rounded-full object-cover mr-4"
+                        />
+                        <div>
+                          <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                          <p className="text-sm text-gray-600">{testimonial.location}</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
 
         <div className="text-center mt-12">

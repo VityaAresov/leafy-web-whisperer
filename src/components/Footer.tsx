@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
@@ -82,19 +82,6 @@ const Footer = () => {
                   Contact
                 </button>
               </li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Our Services</h4>
-            <ul className="space-y-2">
-              <li className="text-gray-300">Tree Pruning & Trimming</li>
-              <li className="text-gray-300">Tree Removal</li>
-              <li className="text-gray-300">Tree Planting</li>
-              <li className="text-gray-300">Health Assessment</li>
-              <li className="text-gray-300">Disease & Pest Control</li>
-              <li className="text-gray-300">Emergency Services</li>
             </ul>
           </div>
 
