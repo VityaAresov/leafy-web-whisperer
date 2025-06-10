@@ -19,10 +19,10 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <TreePine className="h-8 w-8 text-green-500 mr-2" />
-              <h3 className="text-2xl font-bold">TreeCare Pro</h3>
+              <h3 className="text-2xl font-bold">Arborist TreeCare</h3>
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Your trusted local tree care specialists with over 15 years of experience. 
+              Your trusted local tree care specialists with over 13 years of experience. 
               Professional, reliable, and committed to the health of your trees.
             </p>
             <div className="flex space-x-4">
@@ -32,7 +32,7 @@ const Footer = () => {
               <a href="#" className="text-gray-300 hover:text-green-500 transition-colors">
                 <Twitter className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-green-500 transition-colors">
+              <a href="https://www.instagram.com/arborist_tree_care/" className="text-gray-300 hover:text-green-500 transition-colors">
                 <Instagram className="h-6 w-6" />
               </a>
             </div>
@@ -91,15 +91,15 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center">
                 <Phone className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                <span className="text-gray-300">(555) 123-4567</span>
+                <span className="text-gray-300">(408) 775-1775</span>
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                <span className="text-gray-300">info@treecarepro.com</span>
+                <span className="text-gray-300">info@arboristtreecare.com</span>
               </div>
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300">123 Tree Lane<br />Green City, GC 12345</span>
+                <span className="text-gray-300">123 Tree Lane<br />SF Bay Area, CA 95120</span>
               </div>
             </div>
             
@@ -115,7 +115,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-300 text-sm">
-              © {currentYear} TreeCare Pro. All rights reserved.
+              © {currentYear} Arborist TreeCare. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-300 hover:text-green-500 text-sm transition-colors">
