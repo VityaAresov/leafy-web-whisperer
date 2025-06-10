@@ -45,19 +45,19 @@ const ContactUs = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: "(555) 123-4567",
+      details: "(408) 775-1775",
       subtitle: "Call us anytime"
     },
     {
       icon: Mail,
       title: "Email",
-      details: "info@treecarepro.com",
+      details: "info@arboristtreecare.com",
       subtitle: "Send us a message"
     },
     {
       icon: MapPin,
       title: "Location",
-      details: "123 Tree Lane, Green City, GC 12345",
+      details: "123 Tree Lane, Bay Area, CA 95120",
       subtitle: "Visit our office"
     },
     {
