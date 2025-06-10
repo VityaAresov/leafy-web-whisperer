@@ -18,9 +18,9 @@ const AboutUs = () => {
               Certified Arborists Committed to Excellence
             </h3>
             <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-              Our team of certified arborists brings decades of combined experience to every project. 
-              We understand that trees are valuable assets to your property, and we treat them with the 
-              care and respect they deserve.
+              Arborist Tree Care started as a small family business with a deep respect for trees and the people who care for them.
+             Today, we’re a trusted team focused on honest work, expert care, 
+             and doing what’s best for both our customers and their trees.
             </p>
             
             <div className="space-y-4 mb-8">
