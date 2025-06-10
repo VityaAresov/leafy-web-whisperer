@@ -28,7 +28,7 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-primary">TreeCare Pro</h1>
+            <h1 className="text-2xl font-bold text-primary">Arborist TreeCare</h1>
           </div>
 
           {/* Desktop Navigation */}
