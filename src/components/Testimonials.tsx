@@ -29,7 +29,7 @@ const Testimonials = () => {
       name: "Sarah Johnson",
       location: "Downtown Resident",
       rating: 5,
-      text: "TreeCare Pro did an amazing job removing a large dead tree from our backyard. Their team was professional, efficient, and cleaned up everything perfectly. Highly recommended!",
+      text: "Arborist TreeCare did an amazing job removing a large dead tree from our backyard. Their team was professional, efficient, and cleaned up everything perfectly. Highly recommended!",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face"
     },
     {
@@ -37,7 +37,7 @@ const Testimonials = () => {
       name: "Mike Rodriguez",
       location: "Commercial Property Manager",
       rating: 5,
-      text: "We've been using TreeCare Pro for our office complex for 3 years. Their regular maintenance keeps our trees healthy and beautiful. Great service and fair pricing.",
+      text: "We've been using Arborist TreeCare for our office complex for 3 years. Their regular maintenance keeps our trees healthy and beautiful. Great service and fair pricing.",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
     },
     {
@@ -45,7 +45,7 @@ const Testimonials = () => {
       name: "Emily Chen",
       location: "Homeowner",
       rating: 5,
-      text: "After the storm, TreeCare Pro responded within 2 hours to remove a fallen tree from our driveway. They were quick, safe, and reasonably priced. True professionals!",
+      text: "After the storm, Arborist TreeCare responded within 2 hours to remove a fallen tree from our driveway. They were quick, safe, and reasonably priced. True professionals!",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
     },
     {
@@ -61,7 +61,7 @@ const Testimonials = () => {
       name: "Lisa Park",
       location: "Property Developer",
       rating: 5,
-      text: "TreeCare Pro helped us with landscape planning for our new development. Their expertise in tree selection and placement was invaluable. Very knowledgeable team!",
+      text: "Arborist TreeCare helped us with landscape planning for our new development. Their expertise in tree selection and placement was invaluable. Very knowledgeable team!",
       image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=100&h=100&fit=crop&crop=face"
     },
     {
