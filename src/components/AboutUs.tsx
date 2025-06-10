@@ -45,7 +45,7 @@ const AboutUs = () => {
             <div className="grid grid-cols-3 gap-6">
               <div className="text-center">
                 <Award className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                <p className="text-2xl font-bold text-gray-900">15+</p>
+                <p className="text-2xl font-bold text-gray-900">13+</p>
                 <p className="text-sm text-gray-600">Years Experience</p>
               </div>
               <div className="text-center">
@@ -55,7 +55,7 @@ const AboutUs = () => {
               </div>
               <div className="text-center">
                 <TreePine className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                <p className="text-2xl font-bold text-gray-900">5000+</p>
+                <p className="text-2xl font-bold text-gray-900">3000+</p>
                 <p className="text-sm text-gray-600">Trees Serviced</p>
               </div>
             </div>
@@ -66,7 +66,7 @@ const AboutUs = () => {
               <div className="aspect-video">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  src="https://www.youtube.com/embed/Yb2JWGgz_0E"
                   title="About TreeCare Pro - Professional Tree Services"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
