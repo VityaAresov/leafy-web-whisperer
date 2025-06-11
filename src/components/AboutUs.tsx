@@ -75,7 +75,7 @@ const AboutUs = () => {
               </div>
             </div>
             <p className="text-center text-gray-600 mt-4 text-sm">
-              Watch our story and see why customers trust TreeCare Pro
+              Watch our story and see why customers trust Arborist TreeCare
             </p>
           </div>
         </div>
