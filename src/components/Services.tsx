@@ -76,14 +76,14 @@ const Services = () => {
             </Card>
           ))}
         </div>
-
         <div className="mt-16 text-center">
-          <button
-            onClick={() => window.open('/FILE_5943.pdf', '_blank')}
-            className="inline-flex items-center justify-center rounded-md border-2 border-green-600 px-8 py-3 text-lg font-medium text-green-600 bg-white transition-colors hover:bg-green-50 focus:outline-none"
-            View All Services
-          </button>
-        </div>
+  <button
+    onClick={() => window.open('/FILE_5943.pdf', '_blank')}
+    className="inline-flex items-center justify-center rounded-md border-2 border-green-600 px-8 py-3 text-lg font-medium text-green-600 bg-white transition-colors hover:bg-green-50 focus:outline-none"
+  >
+    View All Services
+  </button>
+</div>
       </div>
     </section>
   );
