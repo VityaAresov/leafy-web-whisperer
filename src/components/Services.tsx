@@ -77,6 +77,26 @@ const Services = () => {
             </Card>
           ))}
         </div>
+<div className="mt-16 text-center">
+  <a
+    href="public/FILE_5943.docx"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="
+      inline-flex items-center justify-center
+      w-[176px] h-[44px]
+      px-8 py-3
+      text-[18px] leading-[28px] font-medium
+      text-[#16A34A] bg-white
+      rounded-md
+      transition-colors duration-300
+      hover:bg-green-50 hover:text-[#15803D]
+      focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#16A34A]
+    "
+  >
+    View All Services
+  </a>
+</div>
       </div>
     </section>
   );
