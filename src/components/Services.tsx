@@ -77,21 +77,16 @@ const Services = () => {
             </Card>
           ))}
         <div className="mt-16 text-center">
-  <Button
-    asChild
-    variant="outline"
-    size="lg"
-    className="border-green-600 text-green-600 hover:bg-green-50 px-8 py-3 text-lg"
+  <a
+    href="/FILE_5943.docx"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center justify-center rounded-md border-2 border-green-600 px-8 py-3 text-lg font-medium text-green-600 transition-colors hover:bg-green-50"
   >
-    <a 
-      href="/FILE_5943.docx" 
-      target="_blank" 
-      rel="noopener noreferrer"
-    >
-      View All Services
-    </a>
-  </Button>
+    View All Services
+  </a>
 </div>
+
     </section>
   );
 };
