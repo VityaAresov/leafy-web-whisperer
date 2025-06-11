@@ -79,12 +79,12 @@ const Services = () => {
         </div>
 <div className="mt-16 text-center">
   <a
-    href="public/FILE_5943.docx"
+    href="FILE_5943.docx"
     target="_blank"
     rel="noopener noreferrer"
     className="
       inline-flex items-center justify-center
-      w-[176px] h-[44px]
+      w-[200px] h-[44px]
       px-8 py-3
       text-[18px] leading-[28px] font-medium
       text-[#16A34A] bg-white
