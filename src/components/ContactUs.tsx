@@ -94,7 +94,7 @@ const ContactUs = () => {
               </CardHeader>
               <CardContent>
                 <form
-                  action="https://formspree.io/f/myzjwgkw"
+                  action="https://formspree.io/f/mwpboevz"
                   method="POST"
                   className="space-y-6"
                 >
