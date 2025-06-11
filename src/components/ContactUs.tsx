@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,32 +12,18 @@ const ContactUs = () => {
     email: "",
     phone: "",
     service: "",
-    message: ""
+    message: "",
   });
   const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Contact form submitted:", formData);
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      service: "",
-      message: ""
-    });
   };
 
   const contactInfo = [
@@ -46,26 +31,26 @@ const ContactUs = () => {
       icon: Phone,
       title: "Phone",
       details: "(408) 775-1775",
-      subtitle: "Call us anytime"
+      subtitle: "Call us anytime",
     },
     {
       icon: Mail,
       title: "Email",
       details: "info@arboristtreecare.com",
-      subtitle: "Send us a message"
+      subtitle: "Send us a message",
     },
     {
       icon: MapPin,
       title: "Location",
       details: "123 Tree Lane, Bay Area, CA 95120",
-      subtitle: "Visit our office"
+      subtitle: "Visit our office",
     },
     {
       icon: Clock,
       title: "Hours",
       details: "Mon-Fri: 7AM-6PM, Sat: 8AM-4PM",
-      subtitle: "Emergency 24/7"
-    }
+      subtitle: "Emergency 24/7",
+    },
   ];
 
   return (
@@ -108,7 +93,11 @@ const ContactUs = () => {
                 <CardTitle className="text-2xl text-gray-900">Send Us a Message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  action="https://formspree.io/f/myzjwgkw"
+                  method="POST"
+                  className="space-y-6"
+                >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -145,7 +134,7 @@ const ContactUs = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone Number
+                        Phone Number *
                       </label>
                       <Input
                         id="phone"
