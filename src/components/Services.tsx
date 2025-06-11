@@ -76,17 +76,22 @@ const Services = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-<Button
-  variant="outline"
-  size="lg"
-  onClick={() => window.open('/FILE_5943.docx', '_blank')}
-  className="border-green-600 text-green-600 hover:bg-green-50 px-8 py-3 text-lg"
->
-  View All Services
-</Button>
-
-      </div>
+        <div className="mt-16 text-center">
+  <Button
+    asChild
+    variant="outline"
+    size="lg"
+    className="border-green-600 text-green-600 hover:bg-green-50 px-8 py-3 text-lg"
+  >
+    <a 
+      href="/FILE_5943.docx" 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
+      View All Services
+    </a>
+  </Button>
+</div>
     </section>
   );
 };
