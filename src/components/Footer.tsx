@@ -18,7 +18,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
-              <TreePine className="h-8 w-8 text-green-500 mr-2" />
+              <img src="/logo.png" alt="Arborist TreeCare Logo" className="h-8 w-8 mr-2" />
               <h3 className="text-2xl font-bold">Arborist TreeCare</h3>
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">
