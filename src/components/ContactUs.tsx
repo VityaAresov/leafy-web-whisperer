@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -30,34 +31,32 @@ const ContactUs = () => {
     e.preventDefault();
     
     try {
-      const response = await fetch("https://formspree.io/f/mwpboevz", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData
       });
 
-      if (response.ok) {
-        toast({
-          title: "Message Sent!",
-          description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
-        });
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: ""
-        });
-      } else {
-        throw new Error("Failed to send message");
+      if (error) {
+        throw error;
       }
-    } catch (error) {
+
+      toast({
+        title: "Message Sent!",
+        description: data.message || "Thank you for your inquiry. We'll get back to you within 24 hours.",
+      });
+      
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: ""
+      });
+    } catch (error: any) {
+      console.error('Contact form error:', error);
       toast({
         title: "Error",
-        description: "Something went wrong. Please try again later.",
+        description: error.message || "Something went wrong. Please try again later.",
+        variant: "destructive",
       });
     }
   };
