@@ -18,8 +18,7 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
-              <img src="/logo.png" alt="Arborist TreeCare Logo" className="h-8 w-8 mr-2" />
-              <h3 className="text-2xl font-bold">Arborist TreeCare</h3>
+              <img src="/logo.png" alt="Arborist TreeCare Logo" className="h-12" />
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">
               Your trusted local tree care specialists with over 13 years of experience. 
