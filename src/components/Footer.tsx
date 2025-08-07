@@ -21,7 +21,7 @@ const Footer = () => {
               <img src="/logo.png" alt="Arborist TreeCare Logo" className="h-12" />
             </div>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Your trusted local tree care specialists with over 13 years of experience. 
+              Your trusted local tree care specialists with over 15 years of experience. 
               Professional, reliable, and committed to the health of your trees.
             </p>
             <div className="flex space-x-4">
