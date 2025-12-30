@@ -50,7 +50,7 @@ const AboutUs = () => {
               </div>
               <div className="text-center">
                 <Users className="h-8 w-8 text-green-600 mx-auto mb-2" />
-                <p className="text-2xl font-bold text-gray-900">1000+</p>
+                <p className="text-2xl font-bold text-gray-900">550+</p>
                 <p className="text-sm text-gray-600">Happy Customers</p>
               </div>
               <div className="text-center">
