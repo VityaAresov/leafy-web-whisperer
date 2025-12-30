@@ -28,17 +28,13 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-  <a href="/" aria-label="Go to homepage">
-    <img 
-      src="/logo.png" 
-      alt="Arborist TreeCare Logo" 
-      className="h-10 w-auto" 
-    />
-  </a>
-</div>
-          
+            <a href="/" aria-label="Go to homepage">
+              <img src="/logo.png" alt="Arborist TreeCare Logo" className="h-10 w-auto" />
+            </a>
+          </div>
+
           {/* Desktop Navigation */}
-          <nav className="hidden md:block">
+          <nav className="hidden md:block" aria-label="Primary">
             <ul className="flex items-center space-x-8">
               {menuItems.map((item) => (
                 <li key={item.id}>
@@ -72,7 +68,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
+          <nav className="md:hidden" aria-label="Mobile primary">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-t border-border">
               {menuItems.map((item) => (
                 <button
@@ -83,14 +79,11 @@ const Header = () => {
                   {item.label}
                 </button>
               ))}
-              <Button 
-                onClick={() => scrollToSection("contact")}
-                className="w-full mt-4"
-              >
+              <Button onClick={() => scrollToSection("contact")} className="w-full mt-4">
                 Get Free Quote
               </Button>
             </div>
-          </div>
+          </nav>
         )}
       </div>
     </header>
